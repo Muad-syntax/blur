@@ -17,7 +17,7 @@ Clone this repository:
 
 ```bash
 git clone https://github.com/Muad-syntax/blur.git
-cd fotoKitaBlur
+cd blur
 ```
 
 Install dependencies:
