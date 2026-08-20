@@ -5,7 +5,7 @@ import pygame
 #inisialisasi dan putar musik
 pygame.mixer.init()
 pygame.mixer.music.load("foto-kita-blur.mp3")
-pygame.mixer.music.play(-1)
+
 #detect tangan
 mp_hands = mp.solutions.hands
 
@@ -38,6 +38,7 @@ def is_peace(landmarks):
 #open camera
 cap = cv2.VideoCapture(0)
 
+music_started = False
 
 while True:
 
@@ -46,6 +47,10 @@ while True:
     if not success:
         break
 
+    if not music_started:
+        pygame.mixer.music.play(-1)
+        music_started = True
+    
     frame = cv2.flip(frame, 1)
 
     rgb = cv2.cvtColor(
@@ -86,6 +91,6 @@ while True:
         break
 
 
-pygame.mixer.music.stop()
 cap.release()
 cv2.destroyAllWindows()
+pygame.mixer.music.stop()
