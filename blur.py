@@ -1,6 +1,11 @@
 import cv2
 import mediapipe as mp
+import pygame
 
+#inisialisasi dan putar musik
+pygame.mixer.init()
+pygame.mixer.music.load("foto-kita-blur.mp3")
+pygame.mixer.music.play(-1)
 #detect tangan
 mp_hands = mp.solutions.hands
 
@@ -33,6 +38,7 @@ def is_peace(landmarks):
 #open camera
 cap = cv2.VideoCapture(0)
 
+
 while True:
 
     success, frame = cap.read()
@@ -60,6 +66,8 @@ while True:
                 break
 
     #blur efek
+    
+    
 
     if peace_detected:
 
@@ -77,5 +85,7 @@ while True:
     if cv2.waitKey(1) & 0xFF == 27:
         break
 
+
+pygame.mixer.music.stop()
 cap.release()
 cv2.destroyAllWindows()
