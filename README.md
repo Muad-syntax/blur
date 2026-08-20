@@ -16,7 +16,7 @@ Built using Python, OpenCV, MediaPipe and Pygame for playing music.
 Clone this repository:
 
 ```bash
-git clone 
+git clone https://github.com/Muad-syntax/blur.git
 cd fotoKitaBlur
 ```
 
